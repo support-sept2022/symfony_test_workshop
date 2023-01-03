@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArticleController!{% endblock %}
+
+{% block body %}
+    <section class="row align-items-center g-5">
+        <div class="col-12 d-flex justify-content-center">
+            <img id="headlinePictureDetails" src="/uploads/{{article.picture}}" class="img-fluid" loading="lazy">
+        </div>
+        <div class="col-12">
+            <p class="text-end fs-5">
+                <i class="bi bi-clock"></i>
+                Reading time <span class="badge bg-primary">
+                    {% if reading_time is defined %}
+                    {{ reading_time }}
+                    {% else %}
+                        ? min
+                    {% endif %}
+                </span>
+            </p>
+        </div>
+        <div class="col-lg-12">
+            <h1 class="display-1 fw-bold text-center" id="headlineTitle">{{article.title}}</h1>
+        </div>
+        <div class="col-lg-8 mx-auto">
+            <div class="px-5" id="headlineContent">{{article.content|raw}}</div>
+            <cite class="d-block text-end">by {{article.author}}</cite>
+        </div>
+    </section>
+    <section class="row py-5">
+        <div class="col-lg-8 offset-lg-2">
+            <h1>Comments</h1>
+            <ul id="comments">
+                {% for comment in article.comments %}
+                    <li>{{ comment.content }}</li>
+                {% endfor %}
+            </ul>
+            <h2>Leave your comment</h2>
+            {{ form(form) }}
+        </div>
+
+    </section>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+        <div class="row flex-lg-row-reverse align-items-center g-5 mb-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img id="headlinePicture" src="{{ asset('build/images/default_image.png') }}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold lh-1 mb-3" id="headlineTitle">Default Title</h1>
+                <p class="lead" id="headlineContent">
+                    Sit fugiat aute aute magna. Voluptate adipisicing ullamco nostrud esse. Exercitation fugiat consequat sunt aliquip adipisicing proident nulla deserunt aute ut fugiat. Laboris cillum qui sit in adipisicing quis irure nostrud quis veniam. Qui et id non culpa culpa cillum reprehenderit ut mollit.Labore occaecat enim cupidatat cupidatat enim adipisicing dolor officia elit deserunt. Lorem culpa sint tempor nostrud ipsum aliqua veniam ipsum do aute proident. Do fugiat consectetur tempor adipisicing amet officia non in voluptate. Ea aliqua fugiat adipisicing Lorem exercitation eiusmod pariatur deserunt amet et dolore exercitation consequat.
+                </p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <button id="changeHeadlineButton" type="button" class="btn btn-primary btn-lg px-4 me-md-2">Change the headline</button>
+                    <button id="searchHeadlineButton" type="button" class="btn btn-outline-secondary btn-lg px-4" data-bs-toggle="offcanvas" data-bs-target="#searchMenu">Search for a specific headline</button>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="{{ path('app_article_index') }}">Browse recent articles</a>
+        </div>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="searchMenu" aria-labelledby="searchMenuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="searchMenuLabel">Type your search :
+            </h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"/>
+        </div>
+        <div class="offcanvas-body">
+            <input class="form-control" id="searchHeadline"/>
+
+            <ul id="resultList">
+                <!-- TODO : Add the results of the research with some <li></li> -->
+            </ul>
+        </div>
+    </div>
+{% endblock %}
